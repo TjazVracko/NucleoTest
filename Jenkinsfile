@@ -16,7 +16,7 @@ pipeline {
             steps {
                 setBuildStatus("Building...", "PENDING");
                 echo 'Building...'
-                sh 'platformio run -e nucleo_g071rb'  // compile only
+                // sh 'platformio run -e nucleo_g071rb'  // compile only
             }
         }
         stage('Upload') {
