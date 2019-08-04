@@ -8,8 +8,8 @@ void setBuildStatus(String message, String state) {
   ]);
 }
 
-String native = 'native'
-String board = 'nucleo_g071rb'
+def native = 'native'
+def board = 'nucleo_g071rb'
 
 pipeline {
     agent any
