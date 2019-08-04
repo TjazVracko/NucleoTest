@@ -19,13 +19,13 @@ pipeline {
                 // sh 'platformio run -e nucleo_g071rb'  // compile only
             }
         }
-        stage('Upload') {
-            steps {
-                setBuildStatus("Flashing firmware...", "PENDING");
-                echo 'Flashing firmware....'
-                sh 'platformio run -e nucleo_g071rb -t upload'  // compile and upload to device
-            }
-        }
+        // stage('Upload') {
+        //     steps {
+        //         setBuildStatus("Flashing firmware...", "PENDING");
+        //         echo 'Flashing firmware....'
+        //         sh 'platformio run -e nucleo_g071rb -t upload'  // compile and upload to device
+        //     }
+        // }
         stage('Test') {
             steps {
                 setBuildStatus("Testing...", "PENDING");
