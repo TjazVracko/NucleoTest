@@ -1,19 +1,22 @@
 #ifndef UNIT_TEST
 
-#include "mbed.h"
+#include <Arduino.h>
 
 #include "mod1.h"
- 
-DigitalOut led(LED1);
- 
-int main()
-{
-    while(1) {
-        led = 1; // LED is ON
-        wait(0.5); // 500 ms
-        led = 0; // LED is OFF
-        wait(0.5); // 500 ms
-    }
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(2000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(5000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(3000);
 }
 
 
