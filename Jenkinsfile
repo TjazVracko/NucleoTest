@@ -8,9 +8,6 @@ void setBuildStatus(String message, String state) {
   ]);
 }
 
-def native = "native"
-def board = "nucleo_g071rb"
-
 pipeline {
     agent any
 
@@ -19,22 +16,22 @@ pipeline {
         //     steps {
         //         setBuildStatus("Building...", "PENDING");
         //         echo 'Building...'
-        //         // sh 'platformio run -e $board'  // compile only
+        //         // sh 'platformio run -e nucleo_g071rb'  // compile only
         //     }
         // }
         stage('Build & Upload') {
             steps {
                 setBuildStatus("Flashing firmware...", "PENDING");
                 echo 'Flashing firmware....'
-                sh 'platformio run -e $board -t upload -v'  // build and upload to device
+                sh 'platformio run -e nucleo_g071rb -t upload -v'  // build and upload to device
             }
         }
         stage('Test') {
             steps {
                 setBuildStatus("Testing...", "PENDING");
                 echo 'Testing...'
-                sh 'platformio test -e $native -v'   // native tests (on the pi)
-                sh 'platformio test -e $board -v'    // tests on the board
+                sh 'platformio test -e native -v'   // native tests (on the pi)
+                sh 'platformio test -e nucleo_g071rb -v'    // tests on the board
             }
         }
         stage('Deploy') {
